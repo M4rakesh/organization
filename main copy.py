@@ -48,8 +48,13 @@ def save_data():
             'organizations':organizations
         }
     print("Saving data...")
-    file = open('organizations.json','w')
-    json.dump(data,file,indent=4)
+    try:
+
+        file = open('organizations.json','w')
+        json.dump(data,file,indent=4)
+    except FileNotFoundError:
+        print('gftfdf')
+
 def find_organization_by_id():
     organizations_id=input('Ievadiet organizācijas ID: ')
     for organization in organizations:
@@ -62,14 +67,24 @@ def count_organizations():
 def list_organition_ids():
     for i in organizations:
         print('\n'+i['id'])
-def organization_exists(organizations_id):
-    a=int("Ievadiet id la iparbaudit vai tas jau ir: ")
-    if organizations_id['id'] == a:
-        print("")
+def organization_exists():
+    a=input("Ievadiet id la iparbaudit vai tas jau ir: ")
+    for organization in organizations:
+        if organizations['id'] == a:
+            return True
+def delete_organization_by_id():
+    organizations_id=input('Ievadiet organizācijas ID: ')
+    for organization in organizations:
+        if organization['id']== organizations_id:
+            del organization
+            break
 def main():
     load_data()
-    find_organization_by_id()
-    count_organizations()
+    #find_organization_by_id()
+    #count_organizations()
+    #organization_exists()
+    #list_organition_ids()
+    #delete_organization_by_id()
     while (True):
         response=input('(1)Add organization (2) Print organizations (3)Exit ')
         if response=='1':

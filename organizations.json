@@ -1,6 +1,12 @@
 {
     "organizations": [
         {
+            "name": "LAVA",
+            "adress": "LAVANDA",
+            "id": "12",
+            "contacts": []
+        },
+        {
             "name": "DAINIS",
             "adress": "ANTARA",
             "id": "777",
