@@ -73,10 +73,11 @@ def organization_exists():
         if organizations['id'] == a:
             return True
 def delete_organization_by_id():
-    organizations_id=input('Ievadiet organizācijas ID: ')
+    b=input('Ievadiet organizācijas ID: ')
     for organization in organizations:
-        if organization['id']== organizations_id:
-            del organization
+        if organization['id']== b:
+            organization.remove(organizations)
+            
             break
 def main():
     load_data()
