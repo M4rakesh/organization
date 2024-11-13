@@ -113,8 +113,8 @@ def delete_organization_by_id():
             break
         
 def main():
-    load_data()
-    find_organization_by_id()
+    #load_data()
+    #find_organization_by_id()
     #count_organizations()
     #organization_exists()
     #list_organition_ids()

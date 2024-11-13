@@ -1,12 +1,24 @@
 {
     "dalibnieki": [
         {
-            "name": "ansm",
-            "adress": "asdfsd",
-            "id": "12",
-            "talr": "122344",
-            "contacts": []
-        },
-        {
-            "name": "Dainis",
-            "adress": 
+            "name": "Toms",
+            "adress": "Sporta 5",
+            "id": "15",
+            "talr": "28765443",
+            "contacts": [
+                {
+                    "laiks": "2",
+                    "Dvieli": 1,
+                    "id": "56",
+                    "date": "11/13/2024, 09:04:31"
+                },
+                {
+                    "laiks": "5",
+                    "Dvieli": 2,
+                    "id": "67",
+                    "date": "11/13/2024, 09:04:52"
+                }
+            ]
+        }
+    ]
+}
