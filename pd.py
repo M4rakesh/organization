@@ -54,30 +54,6 @@ def print_organization():
             print('DALĪBNIEKS:')
             print(f"ID:{dalibnieks['id']}")
             print(f"{dalibnieks['name']} {dalibnieks['talr']} {dalibnieks['adress']}")
-
-
-def pievino():
-    while (True):
-        response=input("Vai vēlaties pieteikties apmeklejumam?(y/n) ")
-        if response=='y':
-            laik_s=input("Cik ilgs apmeklējums: ")
-            dvieli=int(input("Dvieļi (viena dvieļa maksa 50 centi): "))
-            apm_id=input("Apmekletaja id: ")
-            datums=print(datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S"))
-            if dvieli>=0:
-                a=0.5
-                d=dvieli*a
-                print(f"dvieļu noma maksa būs:{d}")
-
-                contact={
-                'laiks':laik_s,
-                'Dvieli':dvieli,
-                'id':apm_id,
-                'date': datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S"),
-                }
-            dalibnieks['contacts'].append(contact)
-        elif response=='n':
-            break
 def save_data():
     data={
             'dalibnieki':dalibnieki
@@ -86,7 +62,7 @@ def save_data():
     try:
 
         file = open('dalibnieki.json','w')
-        json.dump(data,file,indent=4)
+        json.dump(data,file,indent=4,ensure_ascii=False)
     except FileNotFoundError:
         print('gftfdf')
 
@@ -95,8 +71,29 @@ def find_organization_by_id():
     for dalibnieks in dalibnieki:
         if dalibnieks['id']== dalibnieki_id:
             print('DALĪBNIEKS:')
-            print(f"{dalibnieks['name']}({dalibnieks['id']})")
-            break
+            print(f"{dalibnieks['name']} ({dalibnieks['id']})")
+            
+            while (True):
+                response=input("Vai vēlaties pieteikties apmeklejumam?(y/n) ")
+                if response=='y':
+                        laik_s=input("Cik ilgs apmeklējums: ")
+                        dvieli=int(input("Dvieļi (viena dvieļa maksa 50 centi): "))
+                        apm_id=input("Apmekletaja id: ")
+                        datums=print(datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S"))
+                        if dvieli>=0:
+                            a=0.5
+                            d=dvieli*a
+                            print(f"dvieļu noma maksa būs:{d}")
+
+                            contact={
+                                'laiks':laik_s,
+                                'Dvieli':dvieli,
+                                'id':apm_id,
+                                'date': datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S"),
+                            }
+                        dalibnieks['contacts'].append(contact)
+                elif response=='n':
+                    break
 def count_organizations():
     print(f"Org sk ir {len()}")
 def list_organition_ids():
@@ -134,11 +131,10 @@ def main():
             exit()
         elif response=='4':
             find_organization_by_id()
-            _organization()
             save_data()
             print('gg,ja livaju tima rakov!')
             
         else:
-            print('Choose a number between 1 and 3')
+            print('Choose a number between 1 and 4')
             continue
 main()
